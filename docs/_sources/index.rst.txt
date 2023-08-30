@@ -18,7 +18,7 @@ With this small example you can try out the tool:
 
 .. code-block::
 
-    $ docker run -p 9000:9000 -it fgratzkowski/cac
+    $ docker run -p 9000:9000 -it fgratzkowski/ca
 
 3. Navigate to: ``Examples/Checking_Annotation`` or ``Examples/Creating_Domain``
 4. Simply invoke:
