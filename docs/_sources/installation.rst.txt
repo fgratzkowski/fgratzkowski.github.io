@@ -31,7 +31,7 @@ To avoid problems, restart your system after installation.
 Linux
 ------
 The quickest way is to install ``libenchant`` using the package manager of your current distribution.\
-To detect the libenchant binaries, PyEnchant uses ``ctypes.util.find_library()`` , which requires ``ldconfig`` , ``gcc`` , ``objdump`` or ``ld`` to be installed. This is the case on most major distributions, however statically linked distributions (like Alpine Linux) might not bring along ``binutils`` by default. To avoid problems, restart your system after installation.
+To detect the libenchant binaries, PyEnchant uses ``ctypes.util.find_library()``, which requires ``ldconfig``, ``gcc``, ``objdump`` or ``ld`` to be installed. This is the case on most major distributions, however statically linked distributions (like Alpine Linux) might not bring along ``binutils`` by default. To avoid problems, restart your system after installation.
 
 .. code-block::
 
