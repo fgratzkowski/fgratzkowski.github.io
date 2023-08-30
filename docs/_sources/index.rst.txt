@@ -9,7 +9,7 @@ CausalAnnotationCorrection
 Introduction
 -------------
 
-This application provides a tool for inspection, validation and correction of behavioral annotations:
+This application provides a tool for inspection, validation and correction of behavioral annotations.
 
 With this small example you can try out the tool:
 
