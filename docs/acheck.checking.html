@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="acheck.checks" href="acheck.checks.html" />
-    <link rel="prev" title="Full list" href="acheck.html" /> 
+    <link rel="prev" title="API Listing" href="acheck.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,83 +51,37 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structure.html">GUI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acheck.html">Full list</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="acheck.html#by-module">By module</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">acheck.checking.check_interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.check_interface.Check"><code class="docutils literal notranslate"><span class="pre">Check</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.Check.get_option_as_config"><code class="docutils literal notranslate"><span class="pre">Check.get_option_as_config()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.Check.get_option_types"><code class="docutils literal notranslate"><span class="pre">Check.get_option_types()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.Check.run"><code class="docutils literal notranslate"><span class="pre">Check.run()</span></code></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="acheck.html">API Listing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="acheck.html#full-list">Full list</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="acheck.html#by-module">By module</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">acheck.checking.check_interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.Check"><code class="docutils literal notranslate"><span class="pre">Check</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.CheckGroup"><code class="docutils literal notranslate"><span class="pre">CheckGroup</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.check_interface.CheckGroup"><code class="docutils literal notranslate"><span class="pre">CheckGroup</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.CheckGroup.Async"><code class="docutils literal notranslate"><span class="pre">CheckGroup.Async</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.CheckGroup.Default"><code class="docutils literal notranslate"><span class="pre">CheckGroup.Default</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.CheckGroup.PreStart"><code class="docutils literal notranslate"><span class="pre">CheckGroup.PreStart</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-acheck.checking.error">acheck.checking.error</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorLevel"><code class="docutils literal notranslate"><span class="pre">ErrorLevel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType"><code class="docutils literal notranslate"><span class="pre">ErrorType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.Fix"><code class="docutils literal notranslate"><span class="pre">Fix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode"><code class="docutils literal notranslate"><span class="pre">FixCode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.Sequence"><code class="docutils literal notranslate"><span class="pre">Sequence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.build_advice"><code class="docutils literal notranslate"><span class="pre">build_advice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.group_errors_by_line"><code class="docutils literal notranslate"><span class="pre">group_errors_by_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.group_errors_inline"><code class="docutils literal notranslate"><span class="pre">group_errors_inline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.read_list"><code class="docutils literal notranslate"><span class="pre">read_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.write_groups"><code class="docutils literal notranslate"><span class="pre">write_groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.write_list"><code class="docutils literal notranslate"><span class="pre">write_list()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.annotations"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.annotations</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.models"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.models</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.output"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.output</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.pel"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.pel</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.pwl"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.pwl</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.signatures"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.signatures</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.check_interface.ToolObjectsMeta.validator"><code class="docutils literal notranslate"><span class="pre">ToolObjectsMeta.validator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="acheck.checks.html">acheck.checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acheck.html#acheck.checkers.register_checks"><code class="docutils literal notranslate"><span class="pre">register_checks()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.check_interface.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-acheck.checking.error">acheck.checking.error</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.Error.to_dict"><code class="docutils literal notranslate"><span class="pre">Error.to_dict()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.ErrorLevel"><code class="docutils literal notranslate"><span class="pre">ErrorLevel</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorLevel.Error"><code class="docutils literal notranslate"><span class="pre">ErrorLevel.Error</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorLevel.Warning"><code class="docutils literal notranslate"><span class="pre">ErrorLevel.Warning</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.ErrorType"><code class="docutils literal notranslate"><span class="pre">ErrorType</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalCSVFile"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalCSVFile</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalCharacter"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalCharacter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalDomainDescription"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalDomainDescription</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalExpressionStructure"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalExpressionStructure</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalFile"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalFile</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalProblemDescription"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalProblemDescription</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalSignature"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalSignature</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalTimestampNoNumber"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalTimestampNoNumber</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.IllegalTimestampNotAscending"><code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalTimestampNotAscending</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.PlanValidationError"><code class="docutils literal notranslate"><span class="pre">ErrorType.PlanValidationError</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.UnknownAction"><code class="docutils literal notranslate"><span class="pre">ErrorType.UnknownAction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.UnknownObject"><code class="docutils literal notranslate"><span class="pre">ErrorType.UnknownObject</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.ErrorType.WrongSpelling"><code class="docutils literal notranslate"><span class="pre">ErrorType.WrongSpelling</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.Fix"><code class="docutils literal notranslate"><span class="pre">Fix</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.FixCode"><code class="docutils literal notranslate"><span class="pre">FixCode</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.AdaptModel"><code class="docutils literal notranslate"><span class="pre">FixCode.AdaptModel</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.AddToDict"><code class="docutils literal notranslate"><span class="pre">FixCode.AddToDict</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.Alert"><code class="docutils literal notranslate"><span class="pre">FixCode.Alert</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.RemoveSequence"><code class="docutils literal notranslate"><span class="pre">FixCode.RemoveSequence</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.ReplaceSequence"><code class="docutils literal notranslate"><span class="pre">FixCode.ReplaceSequence</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acheck.checking.error.FixCode.WhitelistSignature"><code class="docutils literal notranslate"><span class="pre">FixCode.WhitelistSignature</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.Sequence"><code class="docutils literal notranslate"><span class="pre">Sequence</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.build_advice"><code class="docutils literal notranslate"><span class="pre">build_advice()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.group_errors_by_line"><code class="docutils literal notranslate"><span class="pre">group_errors_by_line()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.group_errors_inline"><code class="docutils literal notranslate"><span class="pre">group_errors_inline()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.logger"><code class="docutils literal notranslate"><span class="pre">logger</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.read_list"><code class="docutils literal notranslate"><span class="pre">read_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.write_groups"><code class="docutils literal notranslate"><span class="pre">write_groups()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#acheck.checking.error.write_list"><code class="docutils literal notranslate"><span class="pre">write_list()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="acheck.checks.html">acheck.checks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acheck.html#acheck.checkers.register_checks"><code class="docutils literal notranslate"><span class="pre">register_checks()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -146,7 +100,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="acheck.html">Full list</a></li>
+          <li class="breadcrumb-item"><a href="acheck.html">API Listing</a></li>
       <li class="breadcrumb-item active">acheck.checking.check_interface</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/acheck.checking.rst.txt" rel="nofollow"> View page source</a>
@@ -632,7 +586,7 @@ Checks in this group will be running one by one. PreStart Checks will also be ad
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="acheck.html" class="btn btn-neutral float-left" title="Full list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="acheck.html" class="btn btn-neutral float-left" title="API Listing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="acheck.checks.html" class="btn btn-neutral float-right" title="acheck.checks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
