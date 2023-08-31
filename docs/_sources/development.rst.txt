@@ -102,7 +102,7 @@ This is a tutorial on how to create your own check using an example check that c
 7. Now implement your logic. You can use functions from ``acheck/utils/annotationhelper.py``\ , that help you iterate through the annotation file:
 
 .. code-block:: python
-        :lineos:
+        :linenos:
 
         """Helper functions parse_annotation and read_annotation"""
         times, divs, expressions = ah.parse_annotation(annotation,line_limit)
