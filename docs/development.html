@@ -136,67 +136,45 @@ $ python -m pip install -e .
 <ol class="arabic simple" start="6">
 <li><p>We need to create a new <code class="docutils literal notranslate"><span class="pre">ErrorType</span></code>. So navigate into the <code class="docutils literal notranslate"><span class="pre">acheck/checking/error.py</span></code> module and create the new <code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalUppercase</span></code> type at the end of <code class="docutils literal notranslate"><span class="pre">ErrorType(Enum)</span></code>:</p></li>
 </ol>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ErrorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;All different error types that a check can display&quot;&quot;&quot;</span>
-
- <span class="n">IllegalFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading the file&quot;&quot;&quot;</span>
- <span class="n">IllegalCSVFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading a csv file&quot;&quot;&quot;</span>
- <span class="n">WrongSpelling</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;There a spelling mistake&quot;&quot;&quot;</span>
- <span class="n">IllegalCharacter</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;There are symbols in the annotation that are not allowed&quot;&quot;&quot;</span>
- <span class="n">IllegalTimestampNoNumber</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;The time slice of an annotation is not a number&quot;&quot;&quot;</span>
- <span class="n">IllegalTimestampNotAscending</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;The time stamps of the actions are equal and or not ascending&quot;&quot;&quot;</span>
- <span class="n">IllegalExpressionStructure</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;The structure of the expressions does not correspond to the predefined structure of an annotation expression&quot;&quot;&quot;</span>
- <span class="n">UnknownAction</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;An action is not defined in the domain&quot;&quot;&quot;</span>
- <span class="n">UnknownObject</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Another object is not known in the domain&quot;&quot;&quot;</span>
- <span class="n">IllegalSignature</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;The signature of an action is not correct or marked as correct&quot;&quot;&quot;</span>
- <span class="n">PlanValidationError</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;An error occurred when validating the plan resulting from the annotation.&quot;&quot;&quot;</span>
- <span class="n">IllegalDomainDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;The PDDL description is not correct&quot;&quot;&quot;</span>
- <span class="n">IllegalProblemDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;There are uppercase letters in the annotation&quot;&quot;&quot;</span>
- <span class="n">IllegalUppercase</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">ErrorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="sd">&quot;&quot;&quot;All different error types that a check can display&quot;&quot;&quot;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">IllegalFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos"> 5</span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading the file&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span><span class="n">IllegalCSVFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos"> 7</span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading a csv file&quot;&quot;&quot;</span>
+<span class="linenos"> 8</span><span class="n">WrongSpelling</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos"> 9</span><span class="sd">&quot;&quot;&quot;There a spelling mistake&quot;&quot;&quot;</span>
+<span class="linenos">10</span><span class="n">IllegalCharacter</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">11</span><span class="sd">&quot;&quot;&quot;There are symbols in the annotation that are not allowed&quot;&quot;&quot;</span>
+<span class="linenos">12</span><span class="n">IllegalTimestampNoNumber</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">13</span><span class="sd">&quot;&quot;&quot;The time slice of an annotation is not a number&quot;&quot;&quot;</span>
+<span class="linenos">14</span><span class="n">IllegalTimestampNotAscending</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">15</span><span class="sd">&quot;&quot;&quot;The time stamps of the actions are equal and or not ascending&quot;&quot;&quot;</span>
+<span class="linenos">16</span><span class="n">IllegalExpressionStructure</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">17</span><span class="sd">&quot;&quot;&quot;The structure of the expressions does not correspond to the predefined structure of an annotation expression&quot;&quot;&quot;</span>
+<span class="linenos">18</span><span class="n">UnknownAction</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">19</span><span class="sd">&quot;&quot;&quot;An action is not defined in the domain&quot;&quot;&quot;</span>
+<span class="linenos">20</span><span class="n">UnknownObject</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">21</span><span class="sd">&quot;&quot;&quot;Another object is not known in the domain&quot;&quot;&quot;</span>
+<span class="linenos">22</span><span class="n">IllegalSignature</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">23</span><span class="sd">&quot;&quot;&quot;The signature of an action is not correct or marked as correct&quot;&quot;&quot;</span>
+<span class="linenos">24</span><span class="n">PlanValidationError</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">25</span><span class="sd">&quot;&quot;&quot;An error occurred when validating the plan resulting from the annotation.&quot;&quot;&quot;</span>
+<span class="linenos">26</span><span class="n">IllegalDomainDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">27</span><span class="sd">&quot;&quot;&quot;The PDDL description is not correct&quot;&quot;&quot;</span>
+<span class="linenos">28</span><span class="n">IllegalProblemDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="sd">&quot;&quot;&quot;There are uppercase letters in the annotation&quot;&quot;&quot;</span>
+<span class="linenos">31</span><span class="n">IllegalUppercase</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 </pre></div>
 </div>
-</div></blockquote>
-<ol class="arabic">
-<li><dl>
-<dt>Now implement your logic. You can use functions from <code class="docutils literal notranslate"><span class="pre">acheck/utils/annotationhelper.py</span></code>, that help you iterate through the annotation file:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">``</span></a>python
-“””Helper functions parse_annotation and read_annotation”””
-times, divs, expressions = ah.parse_annotation(annotation,line_limit)
-lines = ah.read_annotation(annotation, line_limit)</p>
-<p>“””For an example.csv that looks like:</p>
-</dd>
-</dl>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">0</span><span class="p">,</span><span class="n">putsock</span><span class="o">-</span><span class="n">left_sock</span><span class="o">-</span><span class="n">left_foot</span>
-  <span class="mi">20</span><span class="p">,</span><span class="n">putsock</span><span class="o">-</span><span class="n">right_sock</span><span class="o">-</span><span class="n">right_foot</span>
-
-  <span class="n">The</span> <span class="n">returning</span> <span class="n">values</span> <span class="n">of</span> <span class="n">parse_annotation</span><span class="p">()</span> <span class="n">will</span> <span class="n">look</span> <span class="n">like</span> <span class="n">this</span><span class="p">:</span>
-   <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;20&quot;</span><span class="p">]</span>
-   <span class="n">divs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">]</span>
-   <span class="n">expressions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;left_sock-left_foot&quot;</span><span class="p">,</span><span class="s2">&quot;right_sock-right_foot&quot;</span><span class="p">]</span>
-
-   <span class="n">The</span> <span class="n">returning</span> <span class="n">values</span> <span class="n">of</span> <span class="n">read_annotation</span><span class="p">()</span> <span class="n">will</span> <span class="n">look</span> <span class="n">like</span> <span class="n">this</span><span class="p">:</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; 0,putsock-left_sock-left_foot&quot;</span><span class="p">,</span><span class="s2">&quot; 20,putsock-right_sock-right_foot&quot;</span><span class="p">]</span>
-
-<span class="s2">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</li>
+<ol class="arabic simple" start="7">
+<li><p>Now implement your logic. You can use functions from <code class="docutils literal notranslate"><span class="pre">acheck/utils/annotationhelper.py</span></code>, that help you iterate through the annotation file:</p></li>
+</ol>
+<ol class="arabic simple" start="8">
 <li><dl class="simple">
-<dt>Now we can implement the logic, that checks for capital letters:</dt><dd><p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">``</span></a>python
+<dt>Now we can implement the logic, that checks for capital letters:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">``</span></a>python
 from pathlib import Path
 from typing import List
 from acheck.checking.check_interface import Check
