@@ -272,10 +272,10 @@ $ python -m pip install -e .
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="n">default_checks</span> <span class="o">=</span> <span class="p">[</span>
 <span class="linenos">14</span>
-<span class="linenos">15</span>  <span class="c1"># For this example we just added the check at the beginning of the sequentially running checks.</span>
+<span class="linenos">15</span>  <span class="c1"># For this example we just added the check at the beginning of the sequentially running checks</span>
 <span class="linenos">16</span>  <span class="n">CapitalLettersCheck</span><span class="p">(</span>
 <span class="linenos">17</span>      <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>  <span class="c1"># Pass the default group. For async_checks it would be CheckGroup.Async</span>
-<span class="linenos">18</span>      <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span>  <span class="c1"># Just pass the value</span>
+<span class="linenos">18</span>      <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span>  <span class="c1"># Just pass the value. For more information have look in the API Listing under `ToolObjectsMeta`</span>
 <span class="linenos">19</span>  <span class="p">),</span>
 <span class="linenos">20</span>
 <span class="linenos">21</span>  <span class="n">ReadFileCheck</span><span class="p">(</span>

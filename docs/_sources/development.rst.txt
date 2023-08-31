@@ -209,10 +209,10 @@ This is a tutorial on how to create your own check using an example check that c
 
         default_checks = [
 
-          # For this example we just added the check at the beginning of the sequentially running checks.
+          # For this example we just added the check at the beginning of the sequentially running checks
           CapitalLettersCheck(
               group=CheckGroup.Default,  # Pass the default group. For async_checks it would be CheckGroup.Async
-              tool_meta=tool_meta  # Just pass the value
+              tool_meta=tool_meta  # Just pass the value. For more information have look in the API Listing under `ToolObjectsMeta`
           ),
 
           ReadFileCheck(
