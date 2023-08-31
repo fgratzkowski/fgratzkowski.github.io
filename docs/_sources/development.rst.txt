@@ -126,7 +126,7 @@ This is a tutorial on how to create your own check using an example check that c
 8. Now we can implement the logic, that checks for capital letters:
 
 .. code-block:: python
-        :lineos:
+        :linenos:
 
         from pathlib import Path
         from typing import List
@@ -167,14 +167,14 @@ This is a tutorial on how to create your own check using an example check that c
 
 
 
-#. If you want to give some information to the user, you can just append message strings to the ``logs`` list, and they will be shown later in the tool.
-#. As an important info, if there is any kind of ``Exception`` during the checking process, this check will be disabled automatically and the error message is shown in the tool. If you want to specify your own ``Exceptions`` just raise them with a custom message.
-#. 
-   Now it is time to set up the ``run()`` method:
+9. If you want to give some information to the user, you can just append message strings to the ``logs`` list, and they will be shown later in the tool.
+10. As an important info, if there is any kind of ``Exception`` during the checking process, this check will be disabled automatically and the error message is shown in the tool. If you want to specify your own ``Exceptions`` just raise them with a custom message.
+11. Now it is time to set up the ``run()`` method:
 
    .. code-block:: python
+        :linenos:
 
-      def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
+        def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
 
           #Always empty the logs at the start
           self.logs.clear()
@@ -189,24 +189,25 @@ This is a tutorial on how to create your own check using an example check that c
               line_limit = line_limit  # Just pass the value. The id is generated automatically.
           )
 
-#. 
+12.
    Now we need to register the ``Check`` inside ``acheck/checkers.py``. Choose at which position you want the check to start and if you want it to be sequential or continuous:
 
    .. code-block:: python
+        :linenos:
 
-      .
-      .
-      .
+        .
+        .
+        .
 
-      from acheck.checks.capital import CapitalLettersCheck
+        from acheck.checks.capital import CapitalLettersCheck
 
-      def register_checks(tool_meta):
+        def register_checks(tool_meta):
 
-      .
-      .
-      .
+        .
+        .
+        .
 
-      default_checks = [
+        default_checks = [
 
           # For this example we just added the check at the beginning of the sequentially running checks.
           CapitalLettersCheck(
@@ -218,8 +219,8 @@ This is a tutorial on how to create your own check using an example check that c
               group=CheckGroup.PreStart,
               tool_meta=tool_meta,
           ),
-      .
-      .
-      .
+        .
+        .
+        .
 
-#. Now that everything has been registered correctly, the application can be started and the new check appears in the tool. 
+13. Now that everything has been registered correctly, the application can be started and the new check appears in the tool.
