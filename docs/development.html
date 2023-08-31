@@ -173,50 +173,8 @@ $ python -m pip install -e .
 <li><p>Now implement your logic. You can use functions from <code class="docutils literal notranslate"><span class="pre">acheck/utils/annotationhelper.py</span></code>, that help you iterate through the annotation file:</p></li>
 </ol>
 <ol class="arabic simple" start="8">
-<li><dl class="simple">
-<dt>Now we can implement the logic, that checks for capital letters:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">``</span></a>python
-from pathlib import Path
-from typing import List
-from acheck.checking.check_interface import Check
-from acheck.checking.error import Error, ErrorType, Sequence, Fix, FixCode, ErrorLevel
-import acheck.utils.annotationhelper as ah</p>
-</dd>
-</dl>
-</li>
+<li><p>Now we can implement the logic, that checks for capital letters:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class CapitalLettersCheck(Check):
-
-@staticmethod
-def _check_capital_letters(self, annotation, domain, problem, check_id, logs, line_limit):
-    # Create an empty list, that will be returned at the end, containing all errors that were found.
-    errors = []
-
-    # Use helper function to get a list of all annotation lines
-    lines = ah.read_annotation(annotation, line_limit)
-
-    # Iterate through all lines
-    for index, line in enumerate(lines):
-        # Checking if there are any uppercase letters
-        if line != line.lower():
-            # We create an Error object and append it to the list
-            errors.append(
-                Error(file_name = annotation,  # Simply pass the value
-                      error_type = ErrorType.IllegalUppercase,  # Newly created ErrorType.IllegalUppercase
-                      check_id = check_id,  # Simply pass the value
-                      line_number = index + 1,  # Specify the line number
-                      incorrect_sequence = Sequence(start_index=0, char_sequence=line),  # Specify the incorrect char Sequence. In this case we want to mark the whole line. So we can replace it with the correct one later.
-                      fixes=[Fix(correct_string=line.lower(), fix_code=FixCode.ReplaceSequence)],  # Specify the auto fix behavior. In this case it will replace the incorrect sequence with the correct string.
-                      error_level=ErrorLevel.Error,  # Specify the error level
-                      )
-            )
-    # Return the list at the end
-    return errors
-
-def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -&gt; List[Error]:
-    pass
-````
-</pre></div>
-</div>
 <ol class="arabic simple">
 <li><p>If you want to give some information to the user, you can just append message strings to the <code class="docutils literal notranslate"><span class="pre">logs</span></code> list, and they will be shown later in the tool.</p></li>
 </ol>

@@ -101,71 +101,70 @@ This is a tutorial on how to create your own check using an example check that c
 
 7. Now implement your logic. You can use functions from ``acheck/utils/annotationhelper.py``\ , that help you iterate through the annotation file:
 
+.. code-block:: python
+        :lineos:
 
+        """Helper functions parse_annotation and read_annotation"""
+        times, divs, expressions = ah.parse_annotation(annotation,line_limit)
+        lines = ah.read_annotation(annotation, line_limit)
 
-.. code-block::
-    :lineos:
+        """For an example.csv that looks like:
 
-    """Helper functions parse_annotation and read_annotation"""
-    times, divs, expressions = ah.parse_annotation(annotation,line_limit)
-    lines = ah.read_annotation(annotation, line_limit)
+        0,putsock-left_sock-left_foot
+        20,putsock-right_sock-right_foot
 
-    """For an example.csv that looks like:
-
-    0,putsock-left_sock-left_foot
-    20,putsock-right_sock-right_foot
-
-    The returning values of parse_annotation() will look like this:
+        The returning values of parse_annotation() will look like this:
         times = ["0","20"]
         divs = ["-","-"]
         expressions = ["left_sock-left_foot","right_sock-right_foot"]
 
-    The returning values of read_annotation() will look like this:
+        The returning values of read_annotation() will look like this:
         lines = [" 0,putsock-left_sock-left_foot"," 20,putsock-right_sock-right_foot"]
 
-    """
+        """
 
 8. Now we can implement the logic, that checks for capital letters:
-    ````python
-    from pathlib import Path
-    from typing import List
-    from acheck.checking.check_interface import Check
-    from acheck.checking.error import Error, ErrorType, Sequence, Fix, FixCode, ErrorLevel
-    import acheck.utils.annotationhelper as ah
 
-.. code-block::
+.. code-block:: python
+        :lineos:
 
-   class CapitalLettersCheck(Check):
+        from pathlib import Path
+        from typing import List
+        from acheck.checking.check_interface import Check
+        from acheck.checking.error import Error, ErrorType, Sequence, Fix, FixCode, ErrorLevel
+        import acheck.utils.annotationhelper as ah
 
-   @staticmethod
-   def _check_capital_letters(self, annotation, domain, problem, check_id, logs, line_limit):
-       # Create an empty list, that will be returned at the end, containing all errors that were found.
-       errors = []
+        class CapitalLettersCheck(Check):
 
-       # Use helper function to get a list of all annotation lines
-       lines = ah.read_annotation(annotation, line_limit)
+            @staticmethod
+            def _check_capital_letters(self, annotation, domain, problem, check_id, logs, line_limit):
+                # Create an empty list, that will be returned at the end, containing all errors that were found.
+                errors = []
 
-       # Iterate through all lines
-       for index, line in enumerate(lines):
-           # Checking if there are any uppercase letters
-           if line != line.lower():
-               # We create an Error object and append it to the list
-               errors.append(
-                   Error(file_name = annotation,  # Simply pass the value
-                         error_type = ErrorType.IllegalUppercase,  # Newly created ErrorType.IllegalUppercase
-                         check_id = check_id,  # Simply pass the value
-                         line_number = index + 1,  # Specify the line number
-                         incorrect_sequence = Sequence(start_index=0, char_sequence=line),  # Specify the incorrect char Sequence. In this case we want to mark the whole line. So we can replace it with the correct one later.
-                         fixes=[Fix(correct_string=line.lower(), fix_code=FixCode.ReplaceSequence)],  # Specify the auto fix behavior. In this case it will replace the incorrect sequence with the correct string.
-                         error_level=ErrorLevel.Error,  # Specify the error level
-                         )
-               )
-       # Return the list at the end
-       return errors
+                # Use helper function to get a list of all annotation lines
+                lines = ah.read_annotation(annotation, line_limit)
 
-   def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
-       pass
-   ````
+               # Iterate through all lines
+               for index, line in enumerate(lines):
+                   # Checking if there are any uppercase letters
+                   if line != line.lower():
+                       # We create an Error object and append it to the list
+                       errors.append(
+                           Error(file_name = annotation,  # Simply pass the value
+                                 error_type = ErrorType.IllegalUppercase,  # Newly created ErrorType.IllegalUppercase
+                                 check_id = check_id,  # Simply pass the value
+                                 line_number = index + 1,  # Specify the line number
+                                 incorrect_sequence = Sequence(start_index=0, char_sequence=line),  # Specify the incorrect char Sequence. In this case we want to mark the whole line. So we can replace it with the correct one later.
+                                 fixes=[Fix(correct_string=line.lower(), fix_code=FixCode.ReplaceSequence)],  # Specify the auto fix behavior. In this case it will replace the incorrect sequence with the correct string.
+                                 error_level=ErrorLevel.Error,  # Specify the error level
+                                 )
+                       )
+               # Return the list at the end
+               return errors
+
+           def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
+               pass
+
 
 
 #. If you want to give some information to the user, you can just append message strings to the ``logs`` list, and they will be shown later in the tool.
