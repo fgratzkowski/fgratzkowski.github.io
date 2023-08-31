@@ -36,7 +36,7 @@ This is a tutorial on how to create your own check using an example check that c
 3. Import the abstract ``Check`` class from the ``acheck/checking/check_interface.py`` module and create a new class with the name of the check, which inherits from the ``Check`` interface.
 4. Now you need to implement the abstract method ``run`` of the ``Check`` class and your code should look like this:
 
-  .. code-block:: python
+.. code-block:: python
         :linenos:
 
         from pathlib import Path
@@ -51,14 +51,13 @@ This is a tutorial on how to create your own check using an example check that c
 5. Now we can create a function that checks the annotation for capital letters, and returns a list of ``Error`` objects. It should contain at least all parameters of the run method, plus a ``check_id`` and ``logs``:
 
 .. code-block:: python
-:linenos:
+    :linenos:
 
-class CapitalLettersCheck(Check):
+    class CapitalLettersCheck(Check):
 
-    @staticmethod
+        @staticmethod
         def _check_capital_letters(self, annotation ,domain, problem, check_id, logs, line_limit):
             pass
-
         def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
             pass
 
