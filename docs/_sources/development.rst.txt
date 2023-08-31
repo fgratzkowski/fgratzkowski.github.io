@@ -1,4 +1,3 @@
-
 Clone and prepare for development
 =================================
 
@@ -32,28 +31,22 @@ Creating your own ``Check``
 This is a tutorial on how to create your own check using an example check that checks annotation for capital letters.
 
 
-#. Go to ``src/acheck/checks`` and create a new module for your check. In this example we will call it: ``capital_letters.py``
-#. Open ``capital_letters.py`` and create a new class that inherits
-#. Import the abstract ``Check`` class from the ``acheck/checking/check_interface.py`` module and create a new class with the name of the check, which inherits from the ``Check`` interface.
-#. 
-   Now you need to implement the abstract method ``run`` of the ``Check`` class and your code should look like this:
-   ````python
+1. Go to ``src/acheck/checks`` and create a new module for your check. In this example we will call it: ``capital_letters.py``
+2. Open ``capital_letters.py`` and create a new class that inherits
+3. Import the abstract ``Check`` class from the ``acheck/checking/check_interface.py`` module and create a new class with the name of the check, which inherits from the ``Check`` interface.
+4. Now you need to implement the abstract method ``run`` of the ``Check`` class and your code should look like this:
+
+  .. code-block:: python
     from pathlib import Path
     from typing import List
-
     from acheck.checking.check_interface import Check
     from acheck.checking.error import Error
 
-.. code-block::
-
-   class CapitalLettersCheck(Check):
-   def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
+    class CapitalLettersCheck(Check):
+    def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
        pass
-   ````
 
-
-#. 
-   Now we can create a function that checks the annotation for capital letters, and returns a list of ``Error`` objects. It should contain at least all parameters of the run method, plus a check_id and logs:
+5. Now we can create a function that checks the annotation for capital letters, and returns a list of ``Error`` objects. It should contain at least all parameters of the run method, plus a check_id and logs:
 
    .. code-block:: python
 
