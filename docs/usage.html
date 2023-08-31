@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-the-config">Customizing the config</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
@@ -117,6 +118,24 @@
 <p class="admonition-title">Warning</p>
 <p>Working with <code class="docutils literal notranslate"><span class="pre">--inplace</span></code> means that you are working with the original files. Be aware that there is no backup.</p>
 </div>
+</section>
+<section id="customizing-the-config">
+<h2>Customizing the config<a class="headerlink" href="#customizing-the-config" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>First export the config file, so that you can modify it locally:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ acheck config -e local_config.toml
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Import back yur local changes:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ acheck config -i local_config.toml
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>To reset the config to default settings, just import an empty file and start the application.</p></li>
+</ol>
 </section>
 </section>
 

@@ -224,3 +224,4 @@ This is a tutorial on how to create your own check using an example check that c
         .
 
 13. Now that everything has been registered correctly, the application can be started and the new check appears in the tool.
+
