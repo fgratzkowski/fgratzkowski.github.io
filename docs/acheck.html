@@ -58,6 +58,7 @@
 <li class="toctree-l3"><a class="reference internal" href="acheck.checking.html">acheck.checking.check_interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acheck.checking.html#module-acheck.checking.error">acheck.checking.error</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acheck.checks.html">acheck.checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acheck.checkers.register_checks"><code class="docutils literal notranslate"><span class="pre">register_checks()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -256,6 +257,14 @@
 </li>
 </ul>
 </div>
+<span class="target" id="module-acheck.checkers"></span><dl class="py function">
+<dt class="sig sig-object py" id="acheck.checkers.register_checks">
+<span class="sig-prename descclassname"><span class="pre">acheck.checkers.</span></span><span class="sig-name descname"><span class="pre">register_checks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tool_meta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/acheck/checkers.html#register_checks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acheck.checkers.register_checks" title="Permalink to this definition"></a></dt>
+<dd><p>This method is invoked by the main method to register all Checks.
+If you created a custom check by yourself you will need to register it
+in the async_check list or the default_checks list</p>
+</dd></dl>
+
 </section>
 </section>
 
