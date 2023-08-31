@@ -105,10 +105,6 @@
             <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Async</span><span class="p">,</span>
             <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
         <span class="p">),</span>
-        <span class="n">PDDLSyntaxCheck</span><span class="p">(</span>
-            <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Async</span><span class="p">,</span>
-            <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
-        <span class="p">),</span>
     <span class="p">]</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -144,7 +140,10 @@
             <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>
             <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
         <span class="p">),</span>
-
+        <span class="n">PDDLSyntaxCheck</span><span class="p">(</span>
+            <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>
+            <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
+        <span class="p">),</span>
         <span class="n">ActionCheck</span><span class="p">(</span>
             <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>
             <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
