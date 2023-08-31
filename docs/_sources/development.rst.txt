@@ -46,9 +46,10 @@ This is a tutorial on how to create your own check using an example check that c
     def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
        pass
 
-5. Now we can create a function that checks the annotation for capital letters, and returns a list of ``Error`` objects. It should contain at least all parameters of the run method, plus a check_id and logs:
+5. Now we can create a function that checks the annotation for capital letters, and returns a list of ``Error`` objects. It should contain at least all parameters of the run method, plus a ``check_id`` and ``logs``:
 
-   .. code-block:: python
+  .. code-block:: python
+        :linenos:
 
         class CapitalLettersCheck(Check):
 
@@ -59,10 +60,9 @@ This is a tutorial on how to create your own check using an example check that c
         def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -> List[Error]:
            pass
 
-#. 
-   We need to create a new ``ErrorType``. So navigate into the ``acheck/checking/error.py`` module and create the new ``ErrorType.IllegalUppercase`` type at the end of ``ErrorType(Enum)``\ :
+6. We need to create a new ``ErrorType``. So navigate into the ``acheck/checking/error.py`` module and create the new ``ErrorType.IllegalUppercase`` type at the end of ``ErrorType(Enum)``\ :
 
-   .. code-block:: python
+  .. code-block:: python
 
       class ErrorType(Enum):
        """All different error types that a check can display"""
