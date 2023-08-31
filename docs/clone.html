@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clone and prepare for development &mdash; CausalAnnotationCorrection 0.0.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=0a554088"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CausalAnnotationCorrection
+          </a>
+              <div class="version">
+                0.0.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acheck.html">API Listing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CausalAnnotationCorrection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Clone and prepare for development</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/clone.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clone-and-prepare-for-development">
+<h1>Clone and prepare for development<a class="headerlink" href="#clone-and-prepare-for-development" title="Permalink to this heading"></a></h1>
+<p>Clone the repository and navigate into the <code class="docutils literal notranslate"><span class="pre">annotation-checker</span></code> directory. Now you will need to install all packages that do not come with python.</p>
+<ul>
+<li><p>If you want to use <code class="docutils literal notranslate"><span class="pre">Pipenv</span></code>, make sure you are in the repository folder and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipenv shell
+$ pipenv install -e .
+</pre></div>
+</div>
+</li>
+<li><p>If you want to use your own virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install -r requirements.txt
+$ python -m pip install -e .
+</pre></div>
+</div>
+</li>
+</ul>
+<p>This will install the module together with all other packages needed.</p>
+<p>If you need some help with virtual environments, have a look at:
+<a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/</a></p>
+<section id="creating-your-own-check">
+<h2>Creating your own <code class="docutils literal notranslate"><span class="pre">Check</span></code><a class="headerlink" href="#creating-your-own-check" title="Permalink to this heading"></a></h2>
+<p>This is a tutorial on how to create your own check using an example check that checks annotation for capital letters.</p>
+<ol class="arabic simple">
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">src/acheck/checks</span></code> and create a new module for your check. In this example we will call it: <code class="docutils literal notranslate"><span class="pre">capital_letters.py</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">capital_letters.py</span></code> and create a new class that inherits</p></li>
+</ol>
+<p>#. Import the abstract <code class="docutils literal notranslate"><span class="pre">Check</span></code> class from the <code class="docutils literal notranslate"><span class="pre">acheck/checking/check_interface.py</span></code> module and create a new class with the name of the check, which inherits from the <code class="docutils literal notranslate"><span class="pre">Check</span></code> interface.
+#.</p>
+<blockquote>
+<div><p>Now you need to implement the abstract method <code class="docutils literal notranslate"><span class="pre">run</span></code> of the <code class="docutils literal notranslate"><span class="pre">Check</span></code> class and your code should look like this:
+<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">``</span></a>python</p>
+<blockquote>
+<div><p>from pathlib import Path
+from typing import List</p>
+<p>from acheck.checking.check_interface import Check
+from acheck.checking.error import Error</p>
+</div></blockquote>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class CapitalLettersCheck(Check):
+def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -&gt; List[Error]:
+    pass
+````
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Now we can create a function that checks the annotation for capital letters, and returns a list of <code class="docutils literal notranslate"><span class="pre">Error</span></code> objects. It should contain at least all parameters of the run method, plus a check_id and logs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CapitalLettersCheck</span><span class="p">(</span><span class="n">Check</span><span class="p">):</span>
+
+<span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">_check_capital_letters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">annotation</span> <span class="p">,</span><span class="n">domain</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">check_id</span><span class="p">,</span> <span class="n">logs</span><span class="p">,</span> <span class="n">line_limit</span><span class="p">):</span>
+   <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">domain</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">problem</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">line_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Error</span><span class="p">]:</span>
+   <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p>We need to create a new <code class="docutils literal notranslate"><span class="pre">ErrorType</span></code>. So navigate into the <code class="docutils literal notranslate"><span class="pre">acheck/checking/error.py</span></code> module and create the new <code class="docutils literal notranslate"><span class="pre">ErrorType.IllegalUppercase</span></code> type at the end of <code class="docutils literal notranslate"><span class="pre">ErrorType(Enum)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ErrorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;All different error types that a check can display&quot;&quot;&quot;</span>
+
+ <span class="n">IllegalFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading the file&quot;&quot;&quot;</span>
+ <span class="n">IllegalCSVFile</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;There is an error when opening or reading a csv file&quot;&quot;&quot;</span>
+ <span class="n">WrongSpelling</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;There a spelling mistake&quot;&quot;&quot;</span>
+ <span class="n">IllegalCharacter</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;There are symbols in the annotation that are not allowed&quot;&quot;&quot;</span>
+ <span class="n">IllegalTimestampNoNumber</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;The time slice of an annotation is not a number&quot;&quot;&quot;</span>
+ <span class="n">IllegalTimestampNotAscending</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;The time stamps of the actions are equal and or not ascending&quot;&quot;&quot;</span>
+ <span class="n">IllegalExpressionStructure</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;The structure of the expressions does not correspond to the predefined structure of an annotation expression&quot;&quot;&quot;</span>
+ <span class="n">UnknownAction</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;An action is not defined in the domain&quot;&quot;&quot;</span>
+ <span class="n">UnknownObject</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Another object is not known in the domain&quot;&quot;&quot;</span>
+ <span class="n">IllegalSignature</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;The signature of an action is not correct or marked as correct&quot;&quot;&quot;</span>
+ <span class="n">PlanValidationError</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;An error occurred when validating the plan resulting from the annotation.&quot;&quot;&quot;</span>
+ <span class="n">IllegalDomainDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;The PDDL description is not correct&quot;&quot;&quot;</span>
+ <span class="n">IllegalProblemDescription</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;There are uppercase letters in the annotation&quot;&quot;&quot;</span>
+ <span class="n">IllegalUppercase</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><dl>
+<dt>Now implement your logic. You can use functions from <code class="docutils literal notranslate"><span class="pre">acheck/utils/annotationhelper.py</span></code>, that help you iterate through the annotation file:</dt><dd><p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">``</span></a>python
+“””Helper functions parse_annotation and read_annotation”””
+times, divs, expressions = ah.parse_annotation(annotation,line_limit)
+lines = ah.read_annotation(annotation, line_limit)</p>
+<p>“””For an example.csv that looks like:</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">0</span><span class="p">,</span><span class="n">putsock</span><span class="o">-</span><span class="n">left_sock</span><span class="o">-</span><span class="n">left_foot</span>
+  <span class="mi">20</span><span class="p">,</span><span class="n">putsock</span><span class="o">-</span><span class="n">right_sock</span><span class="o">-</span><span class="n">right_foot</span>
+
+  <span class="n">The</span> <span class="n">returning</span> <span class="n">values</span> <span class="n">of</span> <span class="n">parse_annotation</span><span class="p">()</span> <span class="n">will</span> <span class="n">look</span> <span class="n">like</span> <span class="n">this</span><span class="p">:</span>
+   <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;20&quot;</span><span class="p">]</span>
+   <span class="n">divs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">]</span>
+   <span class="n">expressions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;left_sock-left_foot&quot;</span><span class="p">,</span><span class="s2">&quot;right_sock-right_foot&quot;</span><span class="p">]</span>
+
+   <span class="n">The</span> <span class="n">returning</span> <span class="n">values</span> <span class="n">of</span> <span class="n">read_annotation</span><span class="p">()</span> <span class="n">will</span> <span class="n">look</span> <span class="n">like</span> <span class="n">this</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; 0,putsock-left_sock-left_foot&quot;</span><span class="p">,</span><span class="s2">&quot; 20,putsock-right_sock-right_foot&quot;</span><span class="p">]</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="simple">
+<dt>Now we can implement the logic, that checks for capital letters:</dt><dd><p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">``</span></a>python
+from pathlib import Path
+from typing import List
+from acheck.checking.check_interface import Check
+from acheck.checking.error import Error, ErrorType, Sequence, Fix, FixCode, ErrorLevel
+import acheck.utils.annotationhelper as ah</p>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class CapitalLettersCheck(Check):
+
+@staticmethod
+def _check_capital_letters(self, annotation, domain, problem, check_id, logs, line_limit):
+    # Create an empty list, that will be returned at the end, containing all errors that were found.
+    errors = []
+
+    # Use helper function to get a list of all annotation lines
+    lines = ah.read_annotation(annotation, line_limit)
+
+    # Iterate through all lines
+    for index, line in enumerate(lines):
+        # Checking if there are any uppercase letters
+        if line != line.lower():
+            # We create an Error object and append it to the list
+            errors.append(
+                Error(file_name = annotation,  # Simply pass the value
+                      error_type = ErrorType.IllegalUppercase,  # Newly created ErrorType.IllegalUppercase
+                      check_id = check_id,  # Simply pass the value
+                      line_number = index + 1,  # Specify the line number
+                      incorrect_sequence = Sequence(start_index=0, char_sequence=line),  # Specify the incorrect char Sequence. In this case we want to mark the whole line. So we can replace it with the correct one later.
+                      fixes=[Fix(correct_string=line.lower(), fix_code=FixCode.ReplaceSequence)],  # Specify the auto fix behavior. In this case it will replace the incorrect sequence with the correct string.
+                      error_level=ErrorLevel.Error,  # Specify the error level
+                      )
+            )
+    # Return the list at the end
+    return errors
+
+def run(self, annotation: Path, domain: Path, problem: Path, line_limit: int = -1) -&gt; List[Error]:
+    pass
+````
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>If you want to give some information to the user, you can just append message strings to the <code class="docutils literal notranslate"><span class="pre">logs</span></code> list, and they will be shown later in the tool.</p></li>
+</ol>
+<p>#. As an important info, if there is any kind of <code class="docutils literal notranslate"><span class="pre">Exception</span></code> during the checking process, this check will be disabled automatically and the error message is shown in the tool. If you want to specify your own <code class="docutils literal notranslate"><span class="pre">Exceptions</span></code> just raise them with a custom message.
+#.</p>
+<blockquote>
+<div><p>Now it is time to set up the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">domain</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">problem</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">line_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Error</span><span class="p">]:</span>
+
+    <span class="c1">#Always empty the logs at the start</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="c1"># Returning the list of errors, that was created by the `_check_capital_letters` method.</span>
+    <span class="k">return</span> <span class="n">CapitalLettersCheck</span><span class="o">.</span><span class="n">_check_capital_letters</span><span class="p">(</span>
+        <span class="n">annotation</span> <span class="o">=</span> <span class="n">annotation</span><span class="p">,</span>  <span class="c1"># Just pass the value</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span><span class="p">,</span>  <span class="c1"># Just pass the value</span>
+        <span class="n">problem</span> <span class="o">=</span> <span class="n">problem</span><span class="p">,</span>  <span class="c1"># Just pass the value</span>
+        <span class="n">check_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>  <span class="c1"># Just pass the value. The id is generated automatically.</span>
+        <span class="n">logs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="p">,</span> <span class="c1"># Just pass the value</span>
+        <span class="n">line_limit</span> <span class="o">=</span> <span class="n">line_limit</span>  <span class="c1"># Just pass the value. The id is generated automatically.</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Now we need to register the <code class="docutils literal notranslate"><span class="pre">Check</span></code> inside <code class="docutils literal notranslate"><span class="pre">acheck/checkers.py</span></code>. Choose at which position you want the check to start and if you want it to be sequential or continuous:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+
+<span class="kn">from</span> <span class="nn">acheck.checks.capital</span> <span class="kn">import</span> <span class="n">CapitalLettersCheck</span>
+
+<span class="k">def</span> <span class="nf">register_checks</span><span class="p">(</span><span class="n">tool_meta</span><span class="p">):</span>
+
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+
+<span class="n">default_checks</span> <span class="o">=</span> <span class="p">[</span>
+
+    <span class="c1"># For this example we just added the check at the beginning of the sequentially running checks.</span>
+    <span class="n">CapitalLettersCheck</span><span class="p">(</span>
+        <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>  <span class="c1"># Pass the default group. For async_checks it would be CheckGroup.Async</span>
+        <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span>  <span class="c1"># Just pass the value</span>
+    <span class="p">),</span>
+
+    <span class="n">ReadFileCheck</span><span class="p">(</span>
+        <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">PreStart</span><span class="p">,</span>
+        <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now that everything has been registered correctly, the application can be started and the new check appears in the tool.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Felix Gratzkowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

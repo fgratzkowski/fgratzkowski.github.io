@@ -45,9 +45,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../example.html">Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../acheck.html">API Listing</a></li>
 </ul>
 
@@ -79,6 +79,7 @@
 <span></span><span class="kn">import</span> <span class="nn">itertools</span>
 
 <span class="kn">from</span> <span class="nn">acheck.checking.check_interface</span> <span class="kn">import</span> <span class="n">CheckGroup</span>
+<span class="kn">from</span> <span class="nn">acheck.checks.capital</span> <span class="kn">import</span> <span class="n">CapitalLettersCheck</span>
 <span class="kn">from</span> <span class="nn">acheck.checks.file</span> <span class="kn">import</span> <span class="n">ReadFileCheck</span><span class="p">,</span> <span class="n">CSVFormatCheck</span><span class="p">,</span> <span class="n">CharacterCheck</span>
 <span class="kn">from</span> <span class="nn">acheck.checks.objects</span> <span class="kn">import</span> <span class="n">ActionCheck</span><span class="p">,</span> <span class="n">WorldObjectsCheck</span>
 <span class="kn">from</span> <span class="nn">acheck.checks.signature</span> <span class="kn">import</span> <span class="n">SignatureCheck</span>
@@ -112,6 +113,13 @@
     <span class="n">default_checks</span> <span class="o">=</span> <span class="p">[</span>
 
         <span class="c1"># Add, remove or edit checks inside here</span>
+
+        <span class="c1"># For this example we just added the check at the beginning of the sequentially running checks.</span>
+        <span class="n">CapitalLettersCheck</span><span class="p">(</span>
+            <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">Default</span><span class="p">,</span>  <span class="c1"># pass the default group. For async_checks it would be CheckGroup.Async</span>
+            <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span>  <span class="c1"># Just pass the value</span>
+        <span class="p">),</span>
+
         <span class="n">ReadFileCheck</span><span class="p">(</span>
             <span class="n">group</span><span class="o">=</span><span class="n">CheckGroup</span><span class="o">.</span><span class="n">PreStart</span><span class="p">,</span>
             <span class="n">tool_meta</span><span class="o">=</span><span class="n">tool_meta</span><span class="p">,</span>
